@@ -1,9 +1,9 @@
-import { Canvas, LinearGradient, Path, vec } from '@shopify/react-native-skia';
+import { Canvas, LinearGradient, Path, vec } from '@shopify/react-native-skia'
 import { StyleSheet } from 'react-native'
 
 interface ArcComponentProps {
-	height: number;
-	width: number;
+	height: number
+	width: number
 }
 
 const ArcComponent = ({ height, width }: ArcComponentProps) => {
@@ -16,7 +16,8 @@ const ArcComponent = ({ height, width }: ArcComponentProps) => {
 				<LinearGradient
 					start={vec(width / 2, 0)}
 					end={vec(width / 2, height)}
-					colors={['rgba(58, 58, 106, 0.26)', 'rgba(37, 36, 76, .26)']} />
+					colors={['rgba(58, 58, 106, 0.26)', 'rgba(37, 36, 76, .26)']}
+				/>
 			</Path>
 			<Path path={arcBorder} style={'stroke'} strokeWidth={0.5} color={'rgba(117, 130, 244, 0.5)'} />
 		</Canvas>

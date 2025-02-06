@@ -1,13 +1,13 @@
 import { Canvas, LinearGradient, Rect, vec } from '@shopify/react-native-skia'
 import { ImageBackground, StyleSheet, Image, ScaledSize, View } from 'react-native'
-import useApplicationDimensions from '../hooks/useApplicationDimensions';
+import useApplicationDimensions from '../hooks/useApplicationDimensions'
 
 const HomeBackground = () => {
-	const dimensions = useApplicationDimensions();
-	const { width, height } = dimensions;
-	const myStyles = styles(dimensions);
-	const smokeHeight = height * 0.6;
-	const smokeOffsetY = height * 0.4;
+	const dimensions = useApplicationDimensions()
+	const { width, height } = dimensions
+	const myStyles = styles(dimensions)
+	const smokeHeight = height * 0.6
+	const smokeOffsetY = height * 0.4
 
 	return (
 		<View style={{ ...StyleSheet.absoluteFillObject }}>
@@ -27,10 +27,7 @@ const HomeBackground = () => {
 						/>
 					</Rect>
 				</Canvas>
-				<Image
-					source={require('../assets/home/House.png')}
-					resizeMode='cover'
-					style={myStyles.houseImage} />
+				<Image source={require('../assets/home/House.png')} resizeMode='cover' style={myStyles.houseImage} />
 			</ImageBackground>
 		</View>
 	)
@@ -38,6 +35,7 @@ const HomeBackground = () => {
 
 export default HomeBackground
 
-const styles = ({ width }: ScaledSize) => StyleSheet.create({
-	houseImage: { width: width, height: width, ...StyleSheet.absoluteFillObject, top: '36%' }
-})
+const styles = ({ width }: ScaledSize) =>
+	StyleSheet.create({
+		houseImage: { width: width, height: width, ...StyleSheet.absoluteFillObject, top: '36%' },
+	})

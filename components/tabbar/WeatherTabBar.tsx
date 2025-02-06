@@ -1,8 +1,8 @@
 import { View, StyleSheet } from 'react-native'
 import ArcComponent from './elements/ArcComponent'
-import useApplicationDimensions from '../../hooks/useApplicationDimensions';
-import TabBarItems from './elements/TabBarItems';
-import { BlurView } from 'expo-blur';
+import useApplicationDimensions from '../../hooks/useApplicationDimensions'
+import TabBarItems from './elements/TabBarItems'
+import { BlurView } from 'expo-blur'
 
 const WeatherTabBar = () => {
 	const tabBarHeight = 88
