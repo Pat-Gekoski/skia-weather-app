@@ -11,7 +11,7 @@ const Home = () => {
 	return (
 		<ForecastSheetProvider>
 			<HomeBackground />
-			<WeatherInfo weather={currentWeather} />
+			<WeatherInfo />
 			<ForecastSheet />
 			<WeatherTabBar />
 		</ForecastSheetProvider>
