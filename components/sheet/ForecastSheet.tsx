@@ -19,9 +19,13 @@ import VisibilityWidget from '../forecast/widgets/VisibilityWidget'
 import PressureWidget from '../forecast/widgets/PressureWidget'
 import Animated, { useAnimatedReaction, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 import { useForcatSheetPosition } from '../../context/ForecastSheetContext'
+import { useWeatherData } from '../../context/WeatherDataContext'
 
 const ForecastSheet = () => {
 	const [selectedForecastType, setSelectedForecastType] = useState<ForecastType>(ForecastType.Hourly)
+	const {
+		weatherData: { hourlyForecast, weeklyForecast },
+	} = useWeatherData()
 	const snapPoints = ['38.5', '83%']
 	const { width, height } = useApplicationDimensions()
 	const firstSnapPoint = height * (parseFloat(snapPoints[0]) / 100)
@@ -93,7 +97,7 @@ const ForecastSheet = () => {
 					<View style={{ flexDirection: 'row' }}>
 						<Animated.View style={[animatedHourlyStyles]}>
 							<ForecastScroll
-								forecasts={hourly}
+								forecasts={hourlyForecast}
 								capsuleWidth={capsuleWidth}
 								capsuleHeight={capsuleHeight}
 								capsuleRadius={capsuleRadius}
@@ -102,7 +106,7 @@ const ForecastSheet = () => {
 
 						<Animated.View style={[animatedWeeklyStyles]}>
 							<ForecastScroll
-								forecasts={weekly}
+								forecasts={weeklyForecast}
 								capsuleWidth={capsuleWidth}
 								capsuleHeight={capsuleHeight}
 								capsuleRadius={capsuleRadius}

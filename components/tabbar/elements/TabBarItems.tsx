@@ -5,6 +5,7 @@ import TrapezoidBackground from './TrapezoidBackground'
 import useApplicationDimensions from '../../../hooks/useApplicationDimensions'
 import CircleButton from './CircleButton'
 import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native'
+import { eventEmitter } from '../../../utils/EventEmitter'
 
 const TabBarItems = () => {
 	const { width, height } = useApplicationDimensions()
@@ -16,7 +17,9 @@ const TabBarItems = () => {
 
 	return (
 		<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 32 }}>
-			<MapIcon />
+			<Pressable onPress={() => eventEmitter.emit('locationEvent')}>
+				<MapIcon />
+			</Pressable>
 			<TrapezoidBackground width={trapezoidWidth} height={trapezoidHeight} />
 			<Pressable
 				style={{
